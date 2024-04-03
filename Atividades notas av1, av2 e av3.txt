@@ -1,0 +1,42 @@
+#include <stdio.h>
+
+int main(void) {
+  
+float av1, av2, av3, media = 0;
+  printf("\nInforme a nota da Av1:");
+  scanf("%f",&av1);
+  printf("\nInforme a nota da Av2:");
+  scanf("%f",&av2);
+  media = (av1+av2)/2;
+  printf("Media %2f", media);
+  if(media>= 7)
+    printf("\nAprovado");
+    else
+    if (media < 5)
+      printf("\nReprovado");
+      else
+      printf("\nRecuperação");
+  if("\nReuperação" && media >= 5)
+  printf("\nInforme a nota da Av3:");
+  scanf("%f",&av3);
+  media = (av1+av3/2);
+  if(av1 <= av2){
+    av1 = av3;
+  }else{
+    av2 = av3;
+  }
+//Recalcula a média  considerando av1 e av2 atualizados
+  
+  media = (av1+av2)/2;
+  printf("Nova média após recuperação:%2f\n", media);
+  
+  if(media >=5.0){
+    
+    printf("aluno recuperado!\n");
+    
+  }else{
+    printf("aluno reprovado!\n");
+ }
+  
+    return 0;
+}
