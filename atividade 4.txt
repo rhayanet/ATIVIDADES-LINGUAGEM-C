@@ -1,0 +1,14 @@
+#include <stdio.h>
+ 
+int main(){
+  int n;
+  printf("digite um numero: ");
+  scanf("%i", &n);
+  if(n%2 == 0)
+ 
+    printf("Numero par!\n");
+  else
+    printf("Numero impar!\n");
+  return 0;
+ 
+}
