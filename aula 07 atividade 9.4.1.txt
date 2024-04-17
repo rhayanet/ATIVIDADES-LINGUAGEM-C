@@ -1,0 +1,21 @@
+#include <stdio.h>
+ 
+int main() {
+    int num, maior = 0;
+ 
+    printf("Digite um número (ou 0 para parar): ");
+    scanf("%d", &num);
+ 
+    while (num != 0) {
+        if (num > maior) {
+            maior = num;
+        }
+ 
+        printf("Digite um número (ou 0 para parar): ");
+        scanf("%d", &num);
+    }
+ 
+    printf("O maior número digitado foi: %d\n", maior);
+ 
+    return 0;
+}
