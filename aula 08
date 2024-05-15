@@ -1,0 +1,35 @@
+#include <stdio.h>
+
+  #include <stdio.h>
+
+  int main() {
+      int vetor1[10], vetor2[10], vetorResultado[10];
+      int i;
+
+      // Solicita ao usuário que digite os valores para o primeiro vetor
+      printf("Digite os 10 valores para o primeiro vetor:\n");
+      for (i = 0; i < 10; i++) {
+          printf("Vetor1[%d]: ", i);
+          scanf("%d", &vetor1[i]);
+      }
+
+      // Solicita ao usuário que digite os valores para o segundo vetor
+      printf("\nDigite os 10 valores para o segundo vetor:\n");
+      for (i = 0; i < 10; i++) {
+          printf("Vetor2[%d]: ", i);
+          scanf("%d", &vetor2[i]);
+      }
+
+      // Calcula a soma dos elementos de mesma posição e armazena no terceiro vetor
+      for (i = 0; i < 10; i++) {
+          vetorResultado[i] = vetor1[i] + vetor2[i];
+      }
+
+      // Exibe os elementos do terceiro vetor
+      printf("\nElementos do terceiro vetor:\n");
+      for (i = 0; i < 10; i++) {
+          printf("VetorResultado[%d]: %d\n", i, vetorResultado[i]);
+      }
+
+      return 0;
+  }
