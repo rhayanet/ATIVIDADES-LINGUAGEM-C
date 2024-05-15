@@ -1,0 +1,80 @@
+#include <stdio.h>
+
+// Função para realizar a busca binária em um vetor ordenado
+int buscaBinaria(double vetor[], int tamanho, double valor) {
+    int inicio = 0;
+    int fim = tamanho - 1;
+
+    while (inicio <= fim) {
+        int meio = (inicio + fim) / 2;
+        if (vetor[meio] == valor) {
+            return meio; // Valor encontrado
+        } else if (vetor[meio] < valor) {
+            inicio = meio + 1;
+        } else {
+            fim = meio - 1;
+        }
+    }
+
+    return -1; // Valor não encontrado
+}
+
+int main() {
+    double vetorA[20];
+    double vetorB[20];
+    double vetorR[20];
+    int i;
+    char operacao;
+    double valorBusca;
+
+    // Leitura dos 20 números reais para o vetorA
+    printf("Digite 20 números reais:\n");
+    for (i = 0; i < 20; i++) {
+        scanf("%lf", &vetorA[i]);
+    }
+
+    // Escolha da operação
+    printf("Escolha a operação (+, -, *, /): ");
+    scanf(" %c", &operacao);
+
+    // Leitura dos 20 números reais para o vetorB
+    printf("Digite 20 números reais diferentes de zero:\n");
+    for (i = 0; i < 20; i++) {
+        do {
+            scanf("%lf", &vetorB[i]);
+        } while (vetorB[i] == 0); // Valores devem ser diferentes de zero
+    }
+
+    // Cálculo do vetor resultante
+    for (i = 0; i < 20; i++) {
+        switch (operacao) {
+            case '+':
+                vetorR[i] = vetorA[i] + vetorB[i];
+                break;
+            case '-':
+                vetorR[i] = vetorA[i] - vetorB[i];
+                break;
+            case '*':
+                vetorR[i] = vetorA[i] * vetorB[i];
+                break;
+            case '/':
+                vetorR[i] = vetorA[i] / vetorB[i];
+                break;
+            default:
+                printf("Operação inválida!\n");
+                return 1;
+        }
+    }
+
+    // Busca binária
+    printf("Digite um valor para buscar no vetor resultante: ");
+    scanf("%lf", &valorBusca);
+    int posicao = buscaBinaria(vetorR, 20, valorBusca);
+    if (posicao != -1) {
+        printf("Valor %.2lf encontrado na posição %d do vetor resultante.\n", valorBusca, posicao);
+    } else {
+        printf("Valor %.2lf não encontrado no vetor resultante.\n", valorBusca);
+    }
+
+    return 0;
+}
