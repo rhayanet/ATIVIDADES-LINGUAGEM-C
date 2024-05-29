@@ -1,0 +1,50 @@
+include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+#define TAMANHO 6
+
+void ordenar(int vetor[], int n) {
+    int i, j, temp;
+    for (i = 0; i < n-1; i++) {
+        for (j = i+1; j < n; j++) {
+            if (vetor[i] > vetor[j]) {
+                temp = vetor[i];
+                vetor[i] = vetor[j];
+                vetor[j] = temp;
+            }
+        }
+    }
+}
+
+int existe(int vetor[], int n, int valor) {
+    for (int i = 0; i < n; i++) {
+        if (vetor[i] == valor) {
+            return 1;
+        }
+    }
+    return 0;
+}
+
+int main() {
+    int vetor[TAMANHO] = {0};
+    int count = 0;
+    srand(time(0));
+
+    while (count < TAMANHO) {
+        int num = rand() % 100 + 1;
+        if (!existe(vetor, count, num)) {
+            vetor[count] = num;
+            count++;
+        }
+    }
+
+    ordenar(vetor, TAMANHO);
+
+    printf("Os números sorteados são: ");
+    for (int i = 0; i < TAMANHO; i++) {
+        printf("%d ", vetor[i]);
+    }
+
+    return 0;
+}
